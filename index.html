@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC game</title>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa; /* 极浅灰色背景 */
+            color: #333333; /* 深灰色文字 */
+            line-height: 1.6;
+            scroll-behavior: smooth; /* 平滑滚动 */
+        }
+        a {
+            text-decoration: none;
+            color: #4A90D9; /* 主色：柔和蓝 */
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #5B8DEF;
+        }
+        /* 主体内容区 */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        /* 昵称与简介 */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #222;
+            font-weight: 800;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        /* 关于我模块 */
+        section {
+            margin-bottom: 3rem;
+            text-align: left;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4A90D9;
+            border-left: 4px solid #4A90D9;
+            padding-left: 0.8rem;
+        }
+        section p {
+            color: #555;
+            line-height: 1.8;
+        }
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+            margin-top: 2rem;
+        }
+        /* 响应式设计 (手机端适配) */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                text-align: center;
+            }
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+            }
+            main {
+                padding-top: 6rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 按钮 -->
+<button id="genFileBtn" class="download-btn">
+  <i class="fas fa-download"></i> 下载猫灵星物语
+</button>
+
+<style>
+.download-btn {
+  margin-top: 25rem;
+  padding: 0.7rem 1.4rem;
+  background-color: #4A90D9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.download-btn:hover {
+  background-color: #5B8DEF;
+  transform: translateY(-2px);
+}
+</style>
+
+<script>
+document.getElementById('genFileBtn').addEventListener('click', function () {
+  //定义文件内容
+  const content=`cat`;
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'cat.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+</script>
+    <!-- 主体内容 -->
+    <main id="home">
+        <!-- 昵称与一句话简介 -->
+        <h1>CC game</h1>
+        <p class="tagline">这里是CC game！一起玩耍吧</p>
+        <!-- 关于我模块 -->
+        <section id="about">
+            <h2>---猫灵星物语---</h2>
+            <p>
+                你好！
+            </p>
+        </section>
+    <!-- 页脚版权 -->
+    <footer>
+        <p>&copy; 2026 catcgu. All rights reserved.</p>
+    </footer>
+    <!-- 内联 JavaScript -->
+    <script>
+    </script>
+</body>
+</html>
